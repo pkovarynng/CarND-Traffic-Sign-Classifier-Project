@@ -20,6 +20,11 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/train-valid-test-vis.png "Data Set Exploratory Visualization"
+[image2]: ./examples/fake-data-gen-step-1.jpg "Fake Data Generation - Step 1"
+[image3]: ./examples/fake-data-gen-step-2.jpg "Fake Data Generation - Step 2"
+[image4]: ./examples/grayscale-conv.jpg "Grayscale Conversion Example"
+[image5]: ./examples/orig-fake-step1-example.jpg "Fake Data Generation - Step 1 Example"
+[image6]: ./examples/orig-fake-step2-example.jpg "Fake Data Generation - Step 2 Example"
 [image2orig]: ./examples/grayscale.jpg "Grayscaling"
 [image3orig]: ./examples/random_noise.jpg "Random Noise"
 [image4orig]: ./examples/placeholder.png "Traffic Sign 1"
@@ -61,23 +66,80 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+To add more data to the data set, I used the following techniques because they generate images that look like they were real, but the traffic sign will still look different, so it is a good additional image for training the model.
 
-Here is an example of a traffic sign image before and after grayscaling.
+##### Flipping images horizontally
+
+The following two columns show the labels for which I flipped the images horizontally. By flipping images with the label on the left-hand side I got an image for the label on the right-hand side, and vice versa.
+
+19,Dangerous curve to the left (180) <->  20,Dangerous curve to the right (300) 480
+33,Turn right ahead            (599) <->  34,Turn left ahead              (360) 959
+36,Go straight or right        (330) <->  37,Go straight or left          (180) 510
+38,Keep right                 (1860) <->  39,Keep left                    (270) 2130
+
+The following images were flipped horizontally too, but the result got the same label here as the original image:
+
+11,Right-of-way at the next intersection (1170)
+12,Priority road                         (1890)
+17,No entry                               (990)
+18,General caution                       (1080)
+22,Bumpy road                             (330)
+26,Traffic signals                        (540)
+30,Beware of ice/snow                     (390)
+35,Ahead only                            (1080)
+
+##### Flipping image vertically
+
+I flipped some images vertically, too, the result got the same label as the original image:
+
+1,Speed limit (30km/h) 1980
+5,Speed limit (80km/h) 1650
+
+##### Rotating images by 180 degrees
+
+I rotated some images by 180 degrees. The resulting image got the same label as the original image:
+
+32,End of all speed and passing limits (210)
+40,Roundabout mandatory (300) - Sometimes it is installed upside down (not sure which one is the official if there is one)
+
+##### Rotating images by 120 and 240 degrees
+
+I rotated one label by 120 degrees and 240 degrees. The resulting images got the same label as the original:
+
+40,Roundabout mandatory (300)
+
+An example for one of the above transformations on a training set image (horizontal flip):
+
+![alt text][image5]
+
+I set a target number first. Once the number of the images for a given label reached this target number, I stopped generating more images for that label. By this I wanted to avoid that some images will over-represented again in the training data set.
+
+I set the target number to 1800.
+
+The visualization of the training data set before and after this step of the fake data generation:
 
 ![alt text][image2]
 
-As a last step, I normalized the image data because ...
+Then in a following code cell I generated some more fake images based on the training set augmented in the previous step and applied some random transformations on the images in it. The random transformations were shifting the image by max 8 pixels in both directions and then rotating the image by a random angle between -15 and 15 degrees.
 
-I decided to generate additional data because ... 
+This second step of fake image generation used the same target number and, as in the first step, stopped generating fake images for a label if that target number was reached.
 
-To add more data to the the data set, I used the following techniques because ... 
+An example for the above transformations on a training set image (random transformation):
 
-Here is an example of an original image and an augmented image:
+![alt text][image6]
+
+
+The visualization of the training data set before and after this 2nd step of the fake data generation:
 
 ![alt text][image3]
 
-The difference between the original data set and the augmented data set is the following ... 
+Then, I decided to convert the images to grayscale to see if there is any improvement in the validation accuracy of the model. I could see minimal improvement.
+
+Here is an example of a traffic sign image before and after grayscaling.
+
+![alt text][image4]
+
+As a last step, I normalized the image data so that the data has mean zero and equal variance.
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
