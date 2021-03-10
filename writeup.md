@@ -25,13 +25,11 @@ The goals / steps of this project are the following:
 [image4]: ./examples/grayscale-conv.jpg "Grayscale Conversion Example"
 [image5]: ./examples/orig-fake-step1-example.jpg "Fake Data Generation - Step 1 Example"
 [image6]: ./examples/orig-fake-step2-example.jpg "Fake Data Generation - Step 2 Example"
-[image2orig]: ./examples/grayscale.jpg "Grayscaling"
-[image3orig]: ./examples/random_noise.jpg "Random Noise"
-[image4orig]: ./examples/placeholder.png "Traffic Sign 1"
-[image5orig]: ./examples/placeholder.png "Traffic Sign 2"
-[image6orig]: ./examples/placeholder.png "Traffic Sign 3"
-[image7orig]: ./examples/placeholder.png "Traffic Sign 4"
-[image8orig]: ./examples/placeholder.png "Traffic Sign 5"
+[image7]: ./examples/test/0.jpg "0"
+[image8]: ./examples/test/1.jpg "1"
+[image9]: ./examples/test/13.jpg "13"
+[image10]: ./examples/test/18.jpg "18"
+[image11]: ./examples/test/25.jpg "25"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -155,7 +153,7 @@ As a last step, I normalized the image data so that the data has mean zero and e
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-My final model consisted of the following layers:
+My final model is a modified version of the LeNet5 architecture. It consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -178,7 +176,7 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used an Adam optimizer. I halved the original learning rate to 0.0005 and double the epochs. The batch size I left at 128 and have not touched any other existing hyperparameters. Added a new one, though: the keep probabilty for the drop out layers. It was helpful to prevent overfitting the model to the training set.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -187,18 +185,16 @@ My final model results were:
 * validation set accuracy of ? 
 * test set accuracy of ?
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
 If a well known architecture was chosen:
 * What architecture was chosen?
 * Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
+The architecure I chose is the well known LeNet5.
+
+I beleived the LeNet5 will work well with the traffic sign data because it seemed to have sufficient number of layers for the problem at hand, and also the number of neurons in the layers could still be increased, if needed, so that redundant learning can happen in them.
+
+Without any tweaking the LeNet5 model was overfitting. Than I added dropouts and added more neurons to the layers beleiving that more redundant working can happen. The more neurons I added the higher the accuracy on the training and validation sets went. The final model goes over the required accuracy of 93%, so I stopped tweaking.
 
 ### Test a Model on New Images
 
@@ -206,10 +202,9 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image7] ![alt text][image8] ![alt text][image9] 
+![alt text][image10] ![alt text][image11]
 
-The first image might be difficult to classify because ...
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
