@@ -181,15 +181,15 @@ To train the model, I used an Adam optimizer. I halved the original learning rat
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 94.7%
+* validation set accuracy of 93.9%
+* test set accuracy of 93.1%
 
 The architecure I chose is the well known LeNet5.
 
-I beleived the LeNet5 will work well with the traffic sign data because it seemed to have sufficient number of layers for the problem at hand, and also the number of neurons in the layers could still be increased, if needed, so that redundant learning can happen in them.
+I beleived the LeNet5 will work well with the traffic sign data because it seemed to have sufficient number of layers for the problem at hand, and also the number of neurons in the layers could still be increased, if needed, so that more redundant learning can happen in them.
 
-Without any tweaking the LeNet5 model was overfitting. Than I added dropouts and added more neurons to the layers beleiving that more redundant working can happen. The more neurons I added the higher the accuracy on the training and validation sets went. The final model goes over the required accuracy of 93%, so I stopped tweaking.
+Without any tweaking the LeNet5 model was overfitting. Then I added dropouts and added more neurons to the layers beleiving that more redundant learning can happen. The more neurons I added the higher the accuracy on the training and validation sets went. The final model goes over the required accuracy of 93%, so I stopped tweaking.
 
 ### Test a Model on New Images
 
@@ -215,24 +215,61 @@ Here are the results of the prediction:
 | Speed limit (30km/h)	| Speed limit (30km/h) 							|
 
 
-The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of ~94%
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 93.1%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 28th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is a General caution sign (probability of 100%), and the image does contain a General caution sign . The top five soft max probabilities were
 
-| Image			        |     Probability	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Road Work      		| Road Work   									| 
-| General Caution		| General Caution                               |
-| Yield					| Yield											|
-| Speed limit (20km/h)	| Speed limit (20km/h)			 				|
-| Speed limit (30km/h)	| Speed limit (30km/h) 							|
+| Label			            |     Probability	        					| 
+|:-------------------------:|:---------------------------------------------:| 
+| General caution  		    | 100%         									| 
+| Traffic signals		    | 0.00%                                         |
+| Pedestrians			    | 0.00%											|
+| Road narrows on the right	| 0.00%			 	                			|
+| Children crossing     	| 0.00% 			            				|
 
+For the second image, the model is relatively sure that this is a Speed limit (20km/h) sign (probability of 100%), and the image does contain a Speed limit (20km/h) sign . The top five soft max probabilities were
 
-For the second image ... 
+| Label			            |     Probability	        					| 
+|:-------------------------:|:---------------------------------------------:| 
+| Speed limit (20km/h)      | 100%         									| 
+| Speed limit (60km/h)	    | 0.00%                                         |
+| Stop			            | 0.00%											|
+| Speed limit (120km/h)	    | 0.00%			 	                			|
+| Speed limit (30km/h)     	| 0.00% 			            				|
+
+For the third image, the model is relatively sure that this is a Yield sign (probability of 99.19%), and the image does contain a Yield sign . The top five soft max probabilities were
+
+| Label			            |     Probability	        					| 
+|:-------------------------:|:---------------------------------------------:| 
+| Yield                     | 99.19%       									| 
+| No vehicles	            | 0.30%                                         |
+| Traffic signals		    | 0.22%											|
+| Bicycles crossing	        | 0.21%			 	                			|
+| Bumpy road     	        | 0.05% 			            				|
+
+For the fourth image, the model is relatively sure that this is a Road work (probability of 90.23%), and the image does contain a Yield sign . The top five soft max probabilities were
+
+| Label			            |     Probability	        					| 
+|:-------------------------:|:---------------------------------------------:| 
+| Road work                 | 90.23%       									| 
+| Road narrows on the right	| 6.17%                                         |
+| Bicycles crossing		    | 3.07%											|
+| Bumpy road	            | 0.47%			 	                			|
+| Children crossing     	| 0.06% 			            				|
+
+For the fifth image, the model is relatively sure that this is a Speed limit (20km/h) (probability of 95.23%), but the image contains a Speed limit (30km/h) sign . The top five soft max probabilities were
+
+| Label			            |     Probability	        					| 
+|:-------------------------:|:---------------------------------------------:| 
+| Speed limit (20km/h)      | 90.23%       									| 
+| Speed limit (30km/h)      | 2.42%       									| 
+| Stop		                | 2.31%											|
+| Roundabout mandatory	    | 0.03%			 	                			|
+| Speed limit (60km/h)     	| 0.01% 			            				|
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
