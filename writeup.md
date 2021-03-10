@@ -19,14 +19,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./examples/train-valid-test-vis.png "Data Set Exploratory Visualization"
+[image2orig]: ./examples/grayscale.jpg "Grayscaling"
+[image3orig]: ./examples/random_noise.jpg "Random Noise"
+[image4orig]: ./examples/placeholder.png "Traffic Sign 1"
+[image5orig]: ./examples/placeholder.png "Traffic Sign 2"
+[image6orig]: ./examples/placeholder.png "Traffic Sign 3"
+[image7orig]: ./examples/placeholder.png "Traffic Sign 4"
+[image8orig]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -53,7 +53,7 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. It is a bar chart showing how the labels are represented in the data. It is apparent that some labels like 38 (Keep right), 2 (Speed limit (50km/h)), etc. are represented with a higher number of images than others like 0 (Speed limit (20km/h)), 42 (End of no passing by vehicles over 3.5 metric tons), etc.
 
 ![alt text][image1]
 
