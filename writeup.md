@@ -185,11 +185,6 @@ My final model results were:
 * validation set accuracy of ? 
 * test set accuracy of ?
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 The architecure I chose is the well known LeNet5.
 
 I beleived the LeNet5 will work well with the traffic sign data because it seemed to have sufficient number of layers for the problem at hand, and also the number of neurons in the layers could still be increased, if needed, so that redundant learning can happen in them.
@@ -205,6 +200,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image7] ![alt text][image8] ![alt text][image9] 
 ![alt text][image10] ![alt text][image11]
 
+The Yield and the General Caution shields are a little turned, so initially I beleived that they may be a little difficult to recognize for the network. The Road Work shield looks a little shabby, so I was interested if that affects recognition. The Speed limit (20km/h) sign was three black things attached to its edge, I was interested in seeing if it still can be recognized easily. The Speed limit (30km/h) is pretty clear I did not expect to see any problems with that.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
