@@ -80,34 +80,44 @@ The following two columns show the labels for which I flipped the images horizon
 
 The following images were flipped horizontally too, but the result got the same label here as the original image:
 
-11,Right-of-way at the next intersection (1170)
-12,Priority road                         (1890)
-17,No entry                               (990)
-18,General caution                       (1080)
-22,Bumpy road                             (330)
-26,Traffic signals                        (540)
-30,Beware of ice/snow                     (390)
-35,Ahead only                            (1080)
+|                                                 |
+|:-----------------------------------------------:|
+| 11,Right-of-way at the next intersection (1170) |
+| 12,Priority road                         (1890) |
+| 17,No entry                               (990) |
+| 18,General caution                       (1080) |
+| 22,Bumpy road                             (330) |
+| 26,Traffic signals                        (540) |
+| 30,Beware of ice/snow                     (390) |
+| 35,Ahead only                            (1080) |
 
 ##### Flipping image vertically
 
 I flipped some images vertically, too, the result got the same label as the original image:
 
-1,Speed limit (30km/h) 1980
-5,Speed limit (80km/h) 1650
+|                                                 |
+|:-----------------------------------------------:|
+| 1,Speed limit (30km/h) 1980                     |
+| 5,Speed limit (80km/h) 1650                     |
 
 ##### Rotating images by 180 degrees
 
 I rotated some images by 180 degrees. The resulting image got the same label as the original image:
 
-32,End of all speed and passing limits (210)
-40,Roundabout mandatory (300) - Sometimes it is installed upside down (not sure which one is the official if there is one)
+|                                                 |
+|:-----------------------------------------------:|
+| 32,End of all speed and passing limits (210)    |
+| 40,Roundabout mandatory (300)                   |
+
+Traffic sign 40: Sometimes it is installed upside down (not sure which one is the official if there is one)
 
 ##### Rotating images by 120 and 240 degrees
 
 I rotated one label by 120 degrees and 240 degrees. The resulting images got the same label as the original:
 
-40,Roundabout mandatory (300)
+|                                                 |
+|:-----------------------------------------------:|
+| 40,Roundabout mandatory (300)                   |
 
 An example for one of the above transformations on a training set image (horizontal flip):
 
