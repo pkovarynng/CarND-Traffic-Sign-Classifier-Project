@@ -71,11 +71,12 @@ To add more data to the data set, I used the following techniques because they g
 ##### Flipping images horizontally
 
 The following two columns show the labels for which I flipped the images horizontally. By flipping images with the label on the left-hand side I got an image for the label on the right-hand side, and vice versa.
-
-19,Dangerous curve to the left (180) <->  20,Dangerous curve to the right (300) 480
-33,Turn right ahead            (599) <->  34,Turn left ahead              (360) 959
-36,Go straight or right        (330) <->  37,Go straight or left          (180) 510
-38,Keep right                 (1860) <->  39,Keep left                    (270) 2130
+|                                      |                                       |
+|:------------------------------------:|:-------------------------------------:|
+| 19,Dangerous curve to the left (180) | 20,Dangerous curve to the right (300) |
+| 33,Turn right ahead            (599) | 34,Turn left ahead              (360) |
+| 36,Go straight or right        (330) | 37,Go straight or left          (180) |
+| 38,Keep right                 (1860) | 39,Keep left                    (270) |
 
 The following images were flipped horizontally too, but the result got the same label here as the original image:
 
